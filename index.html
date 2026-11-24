@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Circulito — descargar</title>
+<meta name="description" content="Tu IA flotante: copiás una pregunta o una captura, tocás la mascota, pegás y te responde.">
+<style>
+  :root { --bg:#f6f5f4; --card:#fff; --text:#1d1b1c; --muted:#6f6b6d; --line:rgba(0,0,0,.09); --accent:#241f21; --accent-text:#fff; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#1c1b1c; --card:#252324; --text:#f1eff0; --muted:#a29ea0; --line:rgba(255,255,255,.1); --accent:#f1eff0; --accent-text:#1c1b1c; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.5 -apple-system,"Segoe UI",system-ui,sans-serif; }
+  main { max-width: 720px; margin: 0 auto; padding: 56px 16px 64px; }
+  .hero { text-align:center; }
+  .hero svg { filter: drop-shadow(0 6px 12px rgba(0,0,0,.25)); }
+  h1 { font-size: 40px; margin: 18px 0 6px; letter-spacing: -.02em; }
+  .lead { color:var(--muted); font-size: 18px; margin: 0 auto 28px; max-width: 520px; }
+  .btn { display:inline-flex; align-items:center; gap:10px; background:var(--accent); color:var(--accent-text); text-decoration:none; font-weight:600; padding:14px 26px; border-radius:12px; font-size:17px; }
+  .alt { margin-top: 12px; color: var(--muted); font-size: 14px; }
+  .alt a { color: inherit; }
+  .grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 44px 0; }
+  .grid div { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; font-size:14.5px; }
+  .grid b { display:block; margin-bottom: 4px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px 22px; margin-bottom: 14px; }
+  .card h2 { font-size: 17px; margin: 0 0 10px; }
+  .card ol { margin: 0; padding-left: 20px; } .card li { margin: 6px 0; }
+  kbd { font: 13px ui-monospace, monospace; border:1px solid var(--line); border-radius:5px; padding:1px 6px; }
+  .tabs { display:flex; gap:8px; margin-bottom: 12px; }
+  .tabs button { border:1px solid var(--line); background:var(--card); color:var(--text); border-radius:8px; padding:6px 14px; font:inherit; font-size:14px; cursor:pointer; }
+  .tabs button.on { background:var(--accent); color:var(--accent-text); }
+  footer { text-align:center; color:var(--muted); font-size: 13px; margin-top: 30px; }
+  @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } h1 { font-size: 32px; } }
+</style>
+</head>
+<body>
+<main>
+  <section class="hero">
+    <div id="logo"></div>
+    <h1>Circulito</h1>
+    <p class="lead">Una mascota que vive en la esquina de tu pantalla. Copiás una pregunta o sacás una captura, la tocás, pegás, y te responde ahí mismo.</p>
+    <a class="btn" id="dl" href="#">Descargar</a>
+    <div class="alt" id="alt"></div>
+  </section>
+
+  <div class="grid">
+    <div><b>Opción múltiple</b>Te responde solo la letra, adentro de la mascota.</div>
+    <div><b>Preguntas largas</b>El texto aparece suave sobre la pantalla, sin tapar nada.</div>
+    <div><b>Tu cuenta</b>Usa tu plan de Claude o de ChatGPT. No pagás nada extra.</div>
+  </div>
+
+  <div class="card">
+    <div class="tabs"><button data-os="win">Windows</button><button data-os="mac">Mac</button></div>
+    <div id="steps"></div>
+  </div>
+
+  <div class="card">
+    <h2>Qué necesitás</h2>
+    Una cuenta de <b>Claude</b> (Pro o Max) o de <b>ChatGPT</b> (Plus, Pro o Team). Lo demás lo instala Circulito solo.
+  </div>
+  <footer>Circulito 1.0</footer>
+</main>
+<script src="mascot.js"></script>
+<script>
+  const base = "https://github.com/Benja301205/circulito-descargas/releases/latest/download/";
+  const files = { win: base + "Circulito-windows.exe", mac: base + "Circulito-mac.dmg" };
+  const steps = {
+    win: `<h2>Instalar en Windows</h2><ol>
+      <li>Abrí <b>Circulito-windows.exe</b>.</li>
+      <li>Si aparece «Windows protegió tu PC», tocá <b>Más información</b> → <b>Ejecutar de todas formas</b>.</li>
+      <li>Se abre la bienvenida: elegí Claude o ChatGPT, tocá <b>Instalar</b> y después <b>Conectar</b>.</li>
+      <li>Para usarlo: sacá una captura con <kbd>Win+Shift+S</kbd>, tocá la mascota y pegá con <kbd>Ctrl+V</kbd>.</li></ol>`,
+    mac: `<h2>Instalar en Mac</h2><ol>
+      <li>Abrí <b>Circulito-mac.dmg</b> y arrastrá Circulito a <b>Aplicaciones</b>.</li>
+      <li>La primera vez, hacé click derecho sobre Circulito → <b>Abrir</b> → <b>Abrir</b>. Si no te deja, andá a Configuración del Sistema → Privacidad y seguridad → <b>Abrir igualmente</b>.</li>
+      <li>Se abre la bienvenida: elegí Claude o ChatGPT, tocá <b>Instalar</b> y después <b>Conectar</b>.</li>
+      <li>Para usarlo: sacá una captura con <kbd>⌘⇧⌃4</kbd>, tocá la mascota y pegá con <kbd>⌘V</kbd>.</li></ol>`,
+  };
+  const isMac = /Mac/i.test(navigator.platform || navigator.userAgent);
+  let os = isMac ? "mac" : "win";
+  function show(o) {
+    os = o;
+    document.querySelectorAll(".tabs button").forEach(b => b.classList.toggle("on", b.dataset.os === o));
+    document.getElementById("steps").innerHTML = steps[o];
+  }
+  document.querySelectorAll(".tabs button").forEach(b => b.onclick = () => show(b.dataset.os));
+  const dl = document.getElementById("dl");
+  dl.href = files[os];
+  dl.textContent = os === "mac" ? "Descargar para Mac" : "Descargar para Windows";
+  document.getElementById("alt").innerHTML = os === "mac"
+    ? `¿Usás Windows? <a href="${files.win}">Descargar para Windows</a>`
+    : `¿Usás Mac? <a href="${files.mac}">Descargar para Mac</a>`;
+  document.getElementById("logo").innerHTML = mascotSVG(140, 118, "idle");
+  show(os);
+</script>
+</body>
+</html>
