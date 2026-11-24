@@ -37,7 +37,7 @@
   <section class="hero">
     <div id="logo"></div>
     <h1>Circulito</h1>
-    <p class="lead">Una mascota que vive en la esquina de tu pantalla. Copiás una pregunta o sacás una captura, la tocás, pegás, y te responde ahí mismo.</p>
+    <p class="lead">Una mascota que vive en la esquina de tu pantalla. Le hacés doble click y responde lo que tengas en pantalla, ahí mismo.</p>
     <a class="btn" id="dl" href="#">Descargar</a>
     <div class="alt" id="alt"></div>
   </section>
@@ -68,12 +68,12 @@
       <li>Abrí <b>Circulito-windows.exe</b>.</li>
       <li>Si aparece «Windows protegió tu PC», tocá <b>Más información</b> → <b>Ejecutar de todas formas</b>.</li>
       <li>Se abre la bienvenida: elegí Claude o ChatGPT, tocá <b>Instalar</b> y después <b>Conectar</b>.</li>
-      <li>Para usarlo: sacá una captura con <kbd>Win+Shift+S</kbd>, tocá la mascota y pegá con <kbd>Ctrl+V</kbd>.</li></ol>`,
+      <li>Para usarlo: <b>doble click en la mascota</b> y responde lo que tengas en pantalla (o <kbd>Ctrl+Alt+S</kbd>).</li></ol>`,
     mac: `<h2>Instalar en Mac</h2><ol>
       <li>Abrí <b>Circulito-mac.dmg</b> y arrastrá Circulito a <b>Aplicaciones</b>.</li>
       <li>La primera vez, hacé click derecho sobre Circulito → <b>Abrir</b> → <b>Abrir</b>. Si no te deja, andá a Configuración del Sistema → Privacidad y seguridad → <b>Abrir igualmente</b>.</li>
       <li>Se abre la bienvenida: elegí Claude o ChatGPT, tocá <b>Instalar</b> y después <b>Conectar</b>.</li>
-      <li>Para usarlo: sacá una captura con <kbd>⌘⇧⌃4</kbd>, tocá la mascota y pegá con <kbd>⌘V</kbd>.</li></ol>`,
+      <li>Para usarlo: <b>doble click en la mascota</b> y responde lo que tengas en pantalla (o <kbd>⌃⌥S</kbd>). La primera vez, macOS pide el permiso de «Grabación de pantalla».</li></ol>`,
   };
   const isMac = /Mac/i.test(navigator.platform || navigator.userAgent);
   let os = isMac ? "mac" : "win";
